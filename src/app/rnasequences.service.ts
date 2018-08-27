@@ -5,27 +5,27 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class DnasequencesService {
+export class RnasequencesService {
 
   constructor(private http: HttpClient) { }
 
   getSequences() {
-    return this.http.get('api/dnasequences')
+    return this.http.get('api/rnasequences')
   }
 
   getSequenceById(id) {
-    return this.http.get('api/dnasequences/' + id);
+    return this.http.get('api/rnasequences/' + id);
   }
 
   setSequence(sequence) {
-    this.http.post('api/dnasequences', sequence);
+    this.http.post('api/rnasequences', sequence);
   }
 
   updateSequence(id, sequence) {
-    this.http.put('api/dnasequences/' + id, sequence);
+    this.http.put('api/rnasequences/' + id, sequence);
   }
 
   deleteSequence(id) {
-    this.http.delete('api/dnasequences/' + id);
+    this.http.delete('api/rnasequences/' + id);
   }
 }

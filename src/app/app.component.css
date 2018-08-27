@@ -2,6 +2,7 @@ header {
   color: rgb(124, 124, 207);
   font-size: 150%;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .grid-container {
