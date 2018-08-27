@@ -1,8 +1,25 @@
 <div id="container">
   <div id="content">
-      <h1>
-          Welcome to {{ title }}!
-      </h1>
-    <router-outlet></router-outlet>
+      <header>
+          {{ title }}. Genetic. Intelligent. Friendly
+      </header>
+      <div class="grid-container">
+          <a href="dnasequences" class="grid-item">
+            <img src="../assets/dnasequence.jpg" alt="DNA sequence" width="300px" height="200px" title="DNA" />
+          </a>
+          <a href="rnasequences" class="grid-item">
+            <img src="../assets/dnasequence.jpg" alt="RNA sequence" width="300px" height="200px" title="RNA" />
+          </a>
+          <a href="proteinsequences" class="grid-item">
+            <img src="../assets/proteinsequence.png" alt="Protein sequence" width="300px" height="200px" 
+            title="Proteins" />
+          </a>
+      </div>
+  
+      <div id="routing-container">
+        <router-outlet></router-outlet>
+      </div>
+
+    <footer>Maksym Zhyrov, 2018 &copy;</footer>
   </div>
 </div>
