@@ -1,7 +1,7 @@
 <h1>Protein Sequences</h1>
 
-  <ul>
-    <li>
-      placeholder
-    </li>
-  </ul>
+<ul>
+  <a *ngFor="let proteinsequence of proteinsequences$" [routerLink]="[proteinsequence.id]">
+    {{ proteinsequence.description }}
+  </a>
+</ul>

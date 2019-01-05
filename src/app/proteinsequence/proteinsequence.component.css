@@ -1,0 +1,20 @@
+h1 {
+    padding-top: 5vh;
+}
+div {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    cursor: pointer;
+    word-wrap: break-word;
+    text-transform: capitalize;
+    color: #3b092f;
+    font-weight: bold;
+}
+div:hover {
+    color: #5e5c07;
+}
+span {
+    padding-left: 10vw;
+    color: rgb(52, 20, 94);
+    font-weight: bolder;
+}

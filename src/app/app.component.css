@@ -1,8 +1,15 @@
 header {
+  overflow: auto;
   color: rgb(124, 124, 207);
   font-size: 150%;
   text-align: center;
   text-transform: capitalize;
+}
+
+header img {
+  float: right;
+  height: 4vw;
+  width: 6vw;
 }
 
 .grid-container {
@@ -16,10 +23,25 @@ header {
   grid-row: 1;
 }
 
+a {
+  color: rgb(211, 75, 120);
+  font-size: 150%;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(230, 233, 42);
+  cursor: pointer;
+}
+
+
 footer{
+  height: 8vh;
+  color: rgb(88, 40, 63);
   text-align: center;
+  font-weight: bold;
 }
 
 #routing-container {
-  height: 73vw;
+  height: 93vh;
 }

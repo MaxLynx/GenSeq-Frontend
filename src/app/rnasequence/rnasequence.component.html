@@ -1,0 +1,9 @@
+<h1>{{rnasequence$.description}}</h1>
+
+<div ngxClipboard [cbContent]="rnasequence$.sequence" (cbOnSuccess) = "onCopied()">
+    {{ rnasequence$.sequence }}
+</div>
+<br>
+  <span *ngIf="copiedInfoShow">
+    Sequence was copied
+  </span>

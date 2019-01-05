@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProteinsequencesService } from '../proteinsequences.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-proteinsequences',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProteinsequencesComponent implements OnInit {
 
-  constructor() { }
+  proteinsequences$: Object;
+
+  constructor(private data: ProteinsequencesService) { }
 
   ngOnInit() {
+    this.data.getSequences().subscribe(
+      data => this.proteinsequences$ = data 
+    );
   }
 
 }

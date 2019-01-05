@@ -1,7 +1,7 @@
 <h1>RNA Sequences</h1>
 
-  <ul>
-    <li>
-      placeholder
-    </li>
-  </ul>
+<ul>
+  <a *ngFor="let rnasequence of rnasequences$" [routerLink]="[rnasequence.id]">
+    {{ rnasequence.description }}
+  </a>
+</ul>

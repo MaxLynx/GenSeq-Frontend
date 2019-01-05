@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RnasequencesService } from '../rnasequences.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-rnasequences',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RnasequencesComponent implements OnInit {
 
-  constructor() { }
+  rnasequences$: Object;
+
+  constructor(private data: RnasequencesService) { }
 
   ngOnInit() {
+    this.data.getSequences().subscribe(
+      data => this.rnasequences$ = data 
+    );
   }
 
 }

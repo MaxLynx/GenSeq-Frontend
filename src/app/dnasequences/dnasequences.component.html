@@ -1,7 +1,7 @@
   <h1>DNASequences</h1>
 
   <ul>
-    <li *ngFor="let dnasequence of dnasequences$">
-      {{ dnasequence.sequence }}
-    </li>
+    <a *ngFor="let dnasequence of dnasequences$" [routerLink]="[dnasequence.id]">
+      {{ dnasequence.description }}
+    </a>
   </ul>

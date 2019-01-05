@@ -1,0 +1,9 @@
+  <h1>{{proteinsequence$.description}}</h1>
+
+  <div ngxClipboard [cbContent]="proteinsequence$.sequence" (cbOnSuccess) = "onCopied()">
+      {{ proteinsequence$.sequence }}
+  </div>
+  <br>
+  <span *ngIf="copiedInfoShow">
+    Sequence was copied
+  </span>
