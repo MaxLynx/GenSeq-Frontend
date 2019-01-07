@@ -1,9 +1,48 @@
   <h1>{{dnasequence$.description}}</h1>
 
-  <div  ngxClipboard [cbContent]="dnasequence$.sequence" (cbOnSuccess) = "onCopied()">
+  <div id="sequenceLines" ngxClipboard [cbContent]="dnasequence$.sequence" (cbOnSuccess) = "onCopied()">
       {{ dnasequence$.sequence }}
   </div>
   <br>
   <span *ngIf="copiedInfoShow">
     Sequence was copied
   </span>
+  <div id="utils">
+    INPUT SEQUENCE:<br>
+    <textarea
+    id="seqArea" #sequenceArea placeholder="Enter your sequence..." [(ngModel)]="sequence.sequence"></textarea>
+    <br>
+    <button (click)="filter(sequenceArea.value)">
+        <i class="material-icons">sentiment_very_satisfied</i>
+    </button>
+     FILTER
+     <br>
+     <button (click)="transcript(sequenceArea.value)">
+        <i class="material-icons">arrow_right_alt</i>
+    </button>
+     TRANSCRIPT
+     <br>
+     <button (click)="random(randomSeqLength.value)">
+        <i class="material-icons">create</i>
+    </button>
+     RANDOM
+     <input type="number" value="50" min="1" max="200000" #randomSeqLength/> bases
+     <br>
+     <button (click)="complement(sequenceArea.value)">
+        <i class="material-icons">view_agenda</i>
+    </button>
+     COMPLEMENT
+     <br>
+     <button (click)="measure(sequenceArea.value)">
+        <i class="material-icons">search</i>
+    </button>
+     MEASURE
+     AT: <input type="number" [(ngModel)]="percentages.first" readonly/> %  
+     CG: <input type="number" [(ngModel)]="percentages.second" readonly/> %
+     <br>
+     <button (click)="mutate(sequenceArea.value, mutationPercents.value)">
+        <i class="material-icons">trending_up</i>
+    </button>
+     MUTATE
+     <input type="number" value="2" min="1" max="10" #mutationPercents/> %
+  </div>

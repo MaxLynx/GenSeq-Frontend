@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { DnasequencesComponent } from '../dnasequences/dnasequences.component';
 import { DnasequenceComponent } from '../dnasequence/dnasequence.component';
@@ -43,7 +44,8 @@ import { PlaceholderComponent } from 'src/app/placeholder/placeholder.component'
 
     @NgModule({
         imports: [
-            RouterModule.forRoot(routes)
+            RouterModule.forRoot(routes),
+            FormsModule
         ],
         exports: [
             RouterModule

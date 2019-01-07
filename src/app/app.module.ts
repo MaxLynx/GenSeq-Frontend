@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'; 
 
@@ -12,7 +13,6 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { RnasequenceComponent } from './rnasequence/rnasequence.component';
 import { ProteinsequenceComponent } from './proteinsequence/proteinsequence.component';
 import { ClipboardModule } from 'ngx-clipboard';
-import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,10 +28,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ClipboardModule,
-    ReactiveFormsModule
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

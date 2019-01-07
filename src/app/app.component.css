@@ -1,6 +1,7 @@
 header {
   overflow: auto;
   color: rgb(124, 124, 207);
+  background-color: rgb(224, 212, 236);
   font-size: 150%;
   text-align: center;
   text-transform: capitalize;
@@ -13,9 +14,10 @@ header img {
 }
 
 .grid-container {
+  background-color: rgb(188, 188, 238);
   display: grid;
   margin-top: 5%;
-  margin-left: 5%;
+  text-align: center;
   grid-column-gap: 5%;
 }
 
@@ -36,11 +38,13 @@ a:hover {
 
 
 footer{
+  background-color: rgb(188, 188, 226);
   height: 8vh;
   color: rgb(88, 40, 63);
   text-align: center;
   font-weight: bold;
 }
+
 
 #routing-container {
   height: 93vh;
