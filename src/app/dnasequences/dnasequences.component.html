@@ -3,6 +3,7 @@
   <ul>
     <a *ngFor="let dnasequence of dnasequences$" [routerLink]="[dnasequence.id]">
       {{ dnasequence.description }}
+      <br>
     </a>
   </ul>
 
@@ -10,6 +11,9 @@
     INPUT SEQUENCE:<br>
     <textarea 
     id="seqArea" #sequenceArea placeholder="Enter your sequence..." [(ngModel)]="sequence.sequence"></textarea>
+    <span id="processingInfo" *ngIf="isProcessing">
+      Processing...
+    </span>
     <br>
     <button (click)="filter(sequenceArea.value)">
         <i class="material-icons">sentiment_very_satisfied</i>
@@ -19,9 +23,14 @@
      <button (click)="transcript(sequenceArea.value)">
         <i class="material-icons">arrow_right_alt</i>
     </button>
-     TRANSCRIPT
+     TRANSCRIPT (=> mRNA)
      <br>
-     <button (click)="random(randomSeqLength.value)">
+     <button (click)="translate(sequenceArea.value)">
+        <i class="material-icons">keyboard_arrow_right</i>
+    </button>
+      TRANSLATE (=> Proteins)
+      <br>
+      <button (click)="random(randomSeqLength.value)">
         <i class="material-icons">create</i>
     </button>
      RANDOM
@@ -44,4 +53,13 @@
     </button>
      MUTATE
      <input type="number" value="2" min="1" max="10" #mutationPercents/> %
+     <br>
+     <button (click)="search(sequenceArea.value)">
+        <i class="material-icons">waves</i>
+     </button>
+     SEARCH SIMILAR (minimum 4 bases sequence needed)
+     <button (click)="getAll()">
+      <i class="material-icons">cached</i>
+     </button>
+     ALL
   </div>

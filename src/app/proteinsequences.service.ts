@@ -13,6 +13,11 @@ export class ProteinsequencesService {
     return this.http.get('api/proteinsequences')
   }
 
+  searchSequences(sequence) {
+    let seqObj = {id: "", sequence: sequence, description: "USER INPUT", valid: true};
+    return this.http.post('api/proteinsequences/search', seqObj);
+  }
+
   getSequenceById(id) {
     return this.http.get('api/proteinsequences/' + id);
   }
@@ -27,5 +32,14 @@ export class ProteinsequencesService {
 
   deleteSequence(id) {
     this.http.delete('api/proteinsequences/' + id);
+  }
+
+  filterSequence(sequence) {
+    let seqObj = {id: "", sequence: sequence, description: "USER INPUT", valid: true};
+    return this.http.post('api/proteinutils/filter', seqObj);
+  }
+
+  randomSequence(length) {
+    return this.http.get('api/proteinutils/random/' + length);
   }
 }

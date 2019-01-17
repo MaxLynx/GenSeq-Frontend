@@ -3,5 +3,6 @@
 <ul>
   <a *ngFor="let rnasequence of rnasequences$" [routerLink]="[rnasequence.id]">
     {{ rnasequence.description }}
+    <br>
   </a>
 </ul>

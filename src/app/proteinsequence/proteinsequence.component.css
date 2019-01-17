@@ -1,7 +1,7 @@
 h1 {
     padding-top: 5vh;
 }
-div {
+#sequenceLines {
     padding-left: 10vw;
     padding-right: 10vw;
     cursor: pointer;
@@ -10,11 +10,38 @@ div {
     color: #3b092f;
     font-weight: bold;
 }
-div:hover {
+#sequenceLines:hover {
     color: #5e5c07;
 }
 span {
     padding-left: 10vw;
     color: rgb(52, 20, 94);
     font-weight: bolder;
+}
+#utils {
+    padding-right: 10vw;
+    float: right;
+    background-color: rgb(124, 228, 228);
+}
+#utils {
+    font-family: Tahoma; 
+    text-shadow: #cccccc;
+}
+#utils textarea {
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px; 
+    -khtml-border-radius: 3px;
+    background: #ffffff !important;
+    outline: none; 
+    height: 35vh; 
+    width: 25vw; 
+    color: #2c2727; 
+    font-size: 1.5em; 
+    font-family: Tahoma; 
+ }
+ #processingInfo {
+    color: rgb(155, 31, 31);
+    font-weight: bold;
 }

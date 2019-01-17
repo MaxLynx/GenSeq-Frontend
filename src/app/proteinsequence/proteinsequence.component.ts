@@ -12,6 +12,8 @@ export class ProteinsequenceComponent implements OnInit {
 
   proteinsequence$: Object;
   copiedInfoShow: Boolean;
+  sequence: Object;
+  isProcessing: boolean;
 
   constructor(private route: ActivatedRoute, private data: ProteinsequencesService) { }
 
@@ -21,10 +23,34 @@ export class ProteinsequenceComponent implements OnInit {
         this.proteinsequence$ = data; 
       }
     );
+    this.sequence = {id: "", sequence: "", description: "EMPTY", valid: true};
+    this.isProcessing = false;
   }
 
   onCopied() {
     this.copiedInfoShow = true;
+    this.sequence = this.proteinsequence$;
   }
 
+  filter(value: string) {
+    this.isProcessing = true;
+    this.data.filterSequence(value).subscribe(
+      data => {
+        this.sequence = data;
+        this.isProcessing = false;
+      }
+    );
+  }
+  random(length: number) {
+    this.isProcessing = true;
+    if(length <= 200000){
+      this.data.randomSequence(length).subscribe(
+        data => {
+          this.sequence = data;
+          this.isProcessing = false;
+        }
+      );
+    }
+  }
+  
 }

@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 export class ProteinsequencesComponent implements OnInit {
 
   proteinsequences$: Object;
+  sequence: Object;
+  isProcessing: boolean;
 
   constructor(private data: ProteinsequencesService) { }
 
@@ -17,6 +19,46 @@ export class ProteinsequencesComponent implements OnInit {
     this.data.getSequences().subscribe(
       data => this.proteinsequences$ = data 
     );
+    this.sequence = {id: "", sequence: "", description: "EMPTY", valid: true};
+    this.isProcessing = false;
   }
 
+  filter(value: string) {
+    this.isProcessing = true;
+    this.data.filterSequence(value).subscribe(
+      data => {
+        this.sequence = data;
+        this.isProcessing = false;
+      }
+    );
+  }
+  random(length: number) {
+    this.isProcessing = true;
+    if(length <= 200000){
+      this.data.randomSequence(length).subscribe(
+        data => {
+          this.sequence = data;
+          this.isProcessing = false;
+        }
+      );
+    }
+  }
+  search(value: string) {
+    this.isProcessing = true;
+    this.data.searchSequences(value).subscribe(
+      data => {
+        this.proteinsequences$ = data;
+        this.isProcessing = false;
+      }
+    );
+  }
+  getAll() {
+    this.isProcessing = true;
+    this.data.getSequences().subscribe(
+      data => {
+      this.proteinsequences$ = data;
+      this.isProcessing = false;
+    } 
+  );
+  }
 }

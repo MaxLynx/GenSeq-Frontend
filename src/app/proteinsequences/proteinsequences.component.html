@@ -3,5 +3,35 @@
 <ul>
   <a *ngFor="let proteinsequence of proteinsequences$" [routerLink]="[proteinsequence.id]">
     {{ proteinsequence.description }}
+    <br>
   </a>
 </ul>
+
+<div id="utils">
+  INPUT SEQUENCE:<br>
+  <textarea 
+  id="seqArea" #sequenceArea placeholder="Enter your sequence..." [(ngModel)]="sequence.sequence"></textarea>
+  <span id="processingInfo" *ngIf="isProcessing">
+    Processing...
+  </span>
+  <br>
+  <button (click)="filter(sequenceArea.value)">
+      <i class="material-icons">sentiment_very_satisfied</i>
+  </button>
+   FILTER
+   <br>
+   <button (click)="random(randomSeqLength.value)">
+      <i class="material-icons">create</i>
+  </button>
+   RANDOM
+   <input type="number" value="50" min="1" max="200000" #randomSeqLength/> amino acids
+   <br>
+   <button (click)="search(sequenceArea.value)">
+      <i class="material-icons">waves</i>
+   </button>
+   SEARCH SIMILAR (minimum 3 amino acids sequence needed)
+   <button (click)="getAll()">
+    <i class="material-icons">cached</i>
+   </button>
+   ALL
+</div>

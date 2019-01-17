@@ -11,6 +11,9 @@
     INPUT SEQUENCE:<br>
     <textarea
     id="seqArea" #sequenceArea placeholder="Enter your sequence..." [(ngModel)]="sequence.sequence"></textarea>
+    <span id="processingInfo" *ngIf="isProcessing">
+        Processing...
+    </span>
     <br>
     <button (click)="filter(sequenceArea.value)">
         <i class="material-icons">sentiment_very_satisfied</i>
@@ -20,7 +23,12 @@
      <button (click)="transcript(sequenceArea.value)">
         <i class="material-icons">arrow_right_alt</i>
     </button>
-     TRANSCRIPT
+     TRANSCRIPT (=> mRNA)
+     <br>
+     <button (click)="translate(sequenceArea.value)">
+        <i class="material-icons">keyboard_arrow_right</i>
+    </button>
+      TRANSLATE (=> Proteins)
      <br>
      <button (click)="random(randomSeqLength.value)">
         <i class="material-icons">create</i>

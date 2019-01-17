@@ -11,7 +11,12 @@ export class DnasequencesService {
   constructor(private http: HttpClient) { }
 
   getSequences() {
-    return this.http.get('api/dnasequences')
+    return this.http.get('api/dnasequences');
+  }
+
+  searchSequences(sequence) {
+    let seqObj = {id: "", sequence: sequence, description: "USER INPUT", valid: true};
+    return this.http.post('api/dnasequences/search', seqObj);
   }
 
   getSequenceById(id) {
@@ -47,6 +52,11 @@ export class DnasequencesService {
   transcriptSequence(sequence) {
     let seqObj = {id: "", sequence: sequence, description: "USER INPUT", valid: true};
     return this.http.post('api/dnautils/transcript', seqObj);
+  }
+
+  translateSequence(sequence) {
+    let seqObj = {id: "", sequence: sequence, description: "USER INPUT", valid: true};
+    return this.http.post('api/dnautils/translate', seqObj);
   }
 
   mutateSequence(sequence, percents) {

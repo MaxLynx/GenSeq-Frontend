@@ -1,9 +1,29 @@
   <h1>{{proteinsequence$.description}}</h1>
 
-  <div ngxClipboard [cbContent]="proteinsequence$.sequence" (cbOnSuccess) = "onCopied()">
+  <div id="sequenceLines" ngxClipboard [cbContent]="proteinsequence$.sequence" (cbOnSuccess) = "onCopied()">
       {{ proteinsequence$.sequence }}
   </div>
   <br>
   <span *ngIf="copiedInfoShow">
     Sequence was copied
   </span>
+  <div id="utils">
+    INPUT SEQUENCE:<br>
+    <textarea 
+    id="seqArea" #sequenceArea placeholder="Enter your sequence..." [(ngModel)]="sequence.sequence"></textarea>
+    <br>
+    <span id="processingInfo" *ngIf="isProcessing">
+      Processing...
+    </span>
+    <br>
+    <button (click)="filter(sequenceArea.value)">
+        <i class="material-icons">sentiment_very_satisfied</i>
+    </button>
+     FILTER
+     <br>
+     <button (click)="random(randomSeqLength.value)">
+        <i class="material-icons">create</i>
+    </button>
+     RANDOM
+     <input type="number" value="50" min="1" max="200000" #randomSeqLength/> amino acids
+  </div>
