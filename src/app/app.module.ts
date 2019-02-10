@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'; 
+import { RecaptchaModule } from 'angular-google-recaptcha';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -31,7 +32,10 @@ import { ClipboardModule } from 'ngx-clipboard';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ClipboardModule
+    ClipboardModule,
+    RecaptchaModule.forRoot({
+            siteKey: '6LcHdJAUAAAAADRdaIeTGZpXzayaiAxsS_fK8uP9',
+        }),
   ],
   providers: [],
   bootstrap: [AppComponent]

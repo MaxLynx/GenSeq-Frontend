@@ -8,12 +8,16 @@
 </ul>
 
 <div id="utils">
-  INPUT SEQUENCE:<br>
+  >><span>      {{ sequence.description }}    </span><br>
   <textarea 
   id="seqArea" #sequenceArea placeholder="Enter your sequence..." [(ngModel)]="sequence.sequence"></textarea>
   <span id="processingInfo" *ngIf="isProcessing">
     Processing...
   </span>
+  
+  <br>
+  PLAIN TEXT IMPORT 
+  <input type="file" (change)="processFile($event)"/>
   <br>
   <button (click)="filter(sequenceArea.value)">
       <i class="material-icons">sentiment_very_satisfied</i>
@@ -34,4 +38,9 @@
     <i class="material-icons">cached</i>
    </button>
    ALL
+   <br>
+     <button (click)="getCached()">
+        <i class="material-icons">keyboard_backspace</i>
+    </button>
+     BACK
 </div>

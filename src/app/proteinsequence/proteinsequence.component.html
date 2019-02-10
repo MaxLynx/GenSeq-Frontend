@@ -8,9 +8,12 @@
     Sequence was copied
   </span>
   <div id="utils">
-    INPUT SEQUENCE:<br>
+    >><span>      {{ sequence.description }}    </span><br>
     <textarea 
     id="seqArea" #sequenceArea placeholder="Enter your sequence..." [(ngModel)]="sequence.sequence"></textarea>
+    <br>
+    PLAIN TEXT IMPORT 
+    <input type="file" (change)="processFile($event)"/>
     <br>
     <span id="processingInfo" *ngIf="isProcessing">
       Processing...
@@ -26,4 +29,9 @@
     </button>
      RANDOM
      <input type="number" value="50" min="1" max="200000" #randomSeqLength/> amino acids
+     <br>
+     <button (click)="getCached()">
+        <i class="material-icons">keyboard_backspace</i>
+    </button>
+     BACK
   </div>

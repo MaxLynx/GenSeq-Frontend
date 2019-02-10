@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GeneralService } from './general.service';
+
  
 @Component({
   selector: 'app-root',
@@ -7,4 +9,31 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GenSeq';
+  connection = true;
+
+  constructor(private data: GeneralService) { }
+
+  ngOnInit() {
+    this.testConnection();
+  }
+
+  ngOnChanges() {
+    this.testConnection();
+  }
+
+
+  testConnection() {
+    this.data.testBackendConnection().subscribe(
+      data => {
+        if(data)
+        this.connection = true;
+        else
+        this.connection = false;
+      },
+      error => {
+        this.connection = false;
+      }
+    );
+  }
+
 }
