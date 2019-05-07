@@ -18,14 +18,14 @@ export class RnasequencesService {
   }
 
   setSequence(sequence) {
-    this.http.post('api/rnasequences', sequence);
+    return this.http.post('api/rnasequences', sequence);
   }
 
   updateSequence(id, sequence) {
-    this.http.put('api/rnasequences/' + id, sequence);
+    return this.http.put('api/rnasequences/' + id, sequence);
   }
 
   deleteSequence(id) {
-    this.http.delete('api/rnasequences/' + id);
+    return this.http.delete('api/rnasequences/' + id);
   }
 }

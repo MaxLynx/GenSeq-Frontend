@@ -1,11 +1,14 @@
-IMPORT SEQUENCES TO THE DATABASE
+<br>
+IMPORT SEQUENCES TO THE <select size="3" #sequenceKind>
+    <option selected value="dna">DNA</option>
+    <option value="protein">Protein</option>
+    <option value="rna">RNA</option>
+  </select> DATABASE
+<br>
+<br>
     <input type="file" (change)="processFile($event, sequenceKind.value)"/>
     <br>
-    <select size="3" #sequenceKind>
-      <option selected value="dna">DNA</option>
-      <option value="protein">Protein</option>
-      <option value="rna">RNA</option>
-    </select>
+    
     <br>
     <button (click)="clearDB(sequenceKind.value)">CLEAR DATABASE
       </button>

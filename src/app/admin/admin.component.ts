@@ -19,24 +19,27 @@ export class AdminComponent implements OnInit {
   }
 
   processFile(event, seqKind) {
+    let dataService;
+    if(seqKind == "dna"){
+      dataService = this.dnadata;
+    }
+    else
+    if(seqKind == "rna"){
+      dataService = this.rnadata;
+    }
+    else
+    if(seqKind == "protein"){
+      dataService = this.proteindata;
+    }
     let file = event.target.files[0];
     let reader = new FileReader();
     reader.onload = (e) => {
       let data = reader.result;
       data.split('/').forEach(function (seq){
         let seqInfo = seq.split('\n');
-        let sequence = {id: "", sequence: seqInfo[1], description: seqInfo[0], valid: true};
-        if(seqKind == "dna"){
-          this.dnadata.setSequence(sequence);
-        }
-        else
-        if(seqKind == "rna"){
-          this.rnadata.setSequence(sequence);
-        }
-        else
-        if(seqKind == "protein"){
-          this.proteindata.setSequence(sequence);
-        }
+        let sequence = {id: Math.round(Math.random()*1000000), sequence: seqInfo[1], description: seqInfo[0], valid: true};
+        dataService.setSequence(sequence).subscribe((data)=>{
+        });
         
       });
     }
@@ -46,28 +49,27 @@ export class AdminComponent implements OnInit {
   }
 
   clearDB(seqKind){
-    let data;
+    let dataService;
     if(seqKind == "dna"){
-      data = this.dnadata;
+      dataService = this.dnadata;
     }
     else
     if(seqKind == "rna"){
-      data = this.rnadata;
+      dataService = this.rnadata;
     }
     else
     if(seqKind == "protein"){
-      data = this.proteindata;
+      dataService = this.proteindata;
     }
 
     
-    data.getSequences().subscribe(
+    dataService.getSequences().subscribe(
       data => {
       let sequences = data;
-
       sequences.forEach(function (seq){
-        data.deleteSequence(seq.id);
+        dataService.deleteSequence(seq.id).subscribe((data)=>{
+        });
       });
-    } 
-  );
+    });
   }
 }

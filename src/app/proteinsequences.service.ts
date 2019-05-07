@@ -23,15 +23,15 @@ export class ProteinsequencesService {
   }
 
   setSequence(sequence) {
-    this.http.post('api/proteinsequences', sequence);
+    return this.http.post('api/proteinsequences', sequence);
   }
 
   updateSequence(id, sequence) {
-    this.http.put('api/proteinsequences/' + id, sequence);
+    return this.http.put('api/proteinsequences/' + id, sequence);
   }
 
   deleteSequence(id) {
-    this.http.delete('api/proteinsequences/' + id);
+    return this.http.delete('api/proteinsequences/' + id);
   }
 
   filterSequence(sequence) {

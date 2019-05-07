@@ -24,15 +24,15 @@ export class DnasequencesService {
   }
 
   setSequence(sequence) {
-    this.http.post('api/dnasequences', sequence);
+    return this.http.post('api/dnasequences', sequence);
   }
 
   updateSequence(id, sequence) {
-    this.http.put('api/dnasequences/' + id, sequence);
+    return this.http.put('api/dnasequences/' + id, sequence);
   }
 
   deleteSequence(id) {
-    this.http.delete('api/dnasequences/' + id);
+    return this.http.delete('api/dnasequences/' + id);
   }
 
   filterSequence(sequence) {
