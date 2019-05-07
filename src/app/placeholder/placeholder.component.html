@@ -26,4 +26,13 @@
       <a href="https://www.dnalc.org" target="_blank">DNA Learning Center</a>
     </li>
   </ul>
+  <div id = "log-form">
+   Login: <input id="login" #loginField placeholder="Enter your login..."/>
+   <br>
+   Password: <input type="password" #passwordField/>
+   <br>
+   <button (click)="authorize(loginField.value, passwordField.value)">
+      Enter as admin
+   </button>
+   </div>
   <img src="assets/drosophila.png"/>

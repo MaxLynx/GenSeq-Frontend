@@ -9,6 +9,7 @@ import { RnasequenceComponent } from 'src/app/rnasequence/rnasequence.component'
 import { ProteinsequencesComponent } from 'src/app/proteinsequences/proteinsequences.component';
 import { ProteinsequenceComponent } from 'src/app/proteinsequence/proteinsequence.component';
 import { PlaceholderComponent } from 'src/app/placeholder/placeholder.component';
+import { AdminComponent } from 'src/app/admin/admin.component';
 
 
     const routes: Routes = [
@@ -39,6 +40,10 @@ import { PlaceholderComponent } from 'src/app/placeholder/placeholder.component'
         {
             path: 'proteinsequences/:id',
             component: ProteinsequenceComponent,
+        },
+        {
+            path: 'admin',
+            component: AdminComponent,
         }
     ];
 

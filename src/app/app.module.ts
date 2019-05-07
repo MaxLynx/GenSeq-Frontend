@@ -14,6 +14,7 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { RnasequenceComponent } from './rnasequence/rnasequence.component';
 import { ProteinsequenceComponent } from './proteinsequence/proteinsequence.component';
 import { ClipboardModule } from 'ngx-clipboard';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ClipboardModule } from 'ngx-clipboard';
     RnasequencesComponent,
     PlaceholderComponent,
     RnasequenceComponent,
-    ProteinsequenceComponent
+    ProteinsequenceComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
