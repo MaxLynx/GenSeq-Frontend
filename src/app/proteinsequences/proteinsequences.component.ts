@@ -11,7 +11,8 @@ export class ProteinsequencesComponent implements OnInit {
 
   proteinsequences$: Object;
   sequence: Object;
-  cashedSequence: Object;
+  cashedSequences: Array<Object>;
+  alreadyGeneratedSequences: Array<Object>;
   isProcessing: boolean;
 
   constructor(private data: ProteinsequencesService) { }
@@ -21,13 +22,15 @@ export class ProteinsequencesComponent implements OnInit {
       data => this.proteinsequences$ = data 
     );
     this.sequence = {id: "", sequence: "", description: "", valid: true};
-    this.cashedSequence = this.sequence;
+    this.alreadyGeneratedSequences = []
+    this.cashedSequences = []
+    this.cashedSequences.push(this.sequence);
     this.isProcessing = false;
   }
 
   filter(value: string) {
     this.isProcessing = true;
-    this.cashedSequence = this.sequence;
+    this.cashedSequences.push(this.sequence);
     this.data.filterSequence(value).subscribe(
       data => {
         this.sequence = data;
@@ -37,7 +40,7 @@ export class ProteinsequencesComponent implements OnInit {
   }
   random(length: number) {
     this.isProcessing = true;
-    this.cashedSequence = this.sequence;
+    this.cashedSequences.push(this.sequence);
     if(length <= 200000){
       this.data.randomSequence(length).subscribe(
         data => {
@@ -49,7 +52,7 @@ export class ProteinsequencesComponent implements OnInit {
   }
   search(value: string) {
     this.isProcessing = true;
-    this.cashedSequence = this.sequence;
+    this.cashedSequences.push(this.sequence);
     this.data.searchSequences(value).subscribe(
       data => {
         this.proteinsequences$ = data;
@@ -59,7 +62,7 @@ export class ProteinsequencesComponent implements OnInit {
   }
   getAll() {
     this.isProcessing = true;
-    this.cashedSequence = this.sequence;
+    this.cashedSequences.push(this.sequence);
     this.data.getSequences().subscribe(
       data => {
       this.proteinsequences$ = data;
@@ -69,7 +72,7 @@ export class ProteinsequencesComponent implements OnInit {
   }
   processFile(event) {
     this.isProcessing = true;
-    this.cashedSequence = this.sequence;
+    this.cashedSequences.push(this.sequence);
     let file = event.target.files[0];
     let reader = new FileReader();
     reader.onload = (e) => {
@@ -83,6 +86,12 @@ export class ProteinsequencesComponent implements OnInit {
 
 
   getCached() {
-    this.sequence = this.cashedSequence;
+    this.alreadyGeneratedSequences.push(this.sequence);
+    this.sequence = this.cashedSequences.pop();
+  }
+
+  getAlreadyGenerated() {
+    this.cashedSequences.push(this.sequence);
+    this.sequence = this.alreadyGeneratedSequences.pop();
   }
 }
