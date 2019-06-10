@@ -10,22 +10,22 @@ export class RnasequencesService {
   constructor(private http: HttpClient) { }
 
   getSequences() {
-    return this.http.get('api/rnasequences')
+    return this.http.get('https://genseqbackend.herokuapp.com/rnasequences')
   }
 
   getSequenceById(id) {
-    return this.http.get('api/rnasequences/' + id);
+    return this.http.get('https://genseqbackend.herokuapp.com/rnasequences/' + id);
   }
 
   setSequence(sequence) {
-    return this.http.post('api/rnasequences', sequence);
+    return this.http.post('https://genseqbackend.herokuapp.com/rnasequences', sequence);
   }
 
   updateSequence(id, sequence) {
-    return this.http.put('api/rnasequences/' + id, sequence);
+    return this.http.put('https://genseqbackend.herokuapp.com/rnasequences/' + id, sequence);
   }
 
   deleteSequence(id) {
-    return this.http.delete('api/rnasequences/' + id);
+    return this.http.delete('https://genseqbackend.herokuapp.com/rnasequences/' + id);
   }
 }

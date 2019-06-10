@@ -10,6 +10,6 @@ export class GeneralService {
   constructor(private http: HttpClient) { }
 
   testBackendConnection() {
-    return this.http.get('api/general/connection')
+    return this.http.get('https://genseqbackend.herokuapp.com/general/connection')
   }
 }
