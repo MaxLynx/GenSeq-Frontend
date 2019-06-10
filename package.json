@@ -8,7 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+<<<<<<< HEAD
     "heroku-postbuild": "ng build --prod"
+=======
+    "postinstall": "ng build --aot --prod"
+>>>>>>> stable
   },
   "private": true,
   "dependencies": {
@@ -27,6 +31,7 @@
     "core-js": "^2.5.4",
     "express": "^4.17.1",
     "ngx-clipboard": "^11.1.9",
+<<<<<<< HEAD
     "path": "^0.12.7",
     "rxjs": "^6.5.2",
     "typescript": "~3.4.5",
@@ -36,6 +41,17 @@
     "@angular-devkit/build-angular": "^0.7.5",
     "@angular/cli": "^8.0.2",
     "@angular/language-service": "^8.0.0",
+=======
+    "rxjs": "^6.0.0",
+    "zone.js": "~0.8.26",
+    "@angular/cli": "~6.1.5",
+    "@angular/compiler-cli": "^6.1.0",
+    "typescript": "~2.7.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.7.0",
+    "@angular/language-service": "^6.1.0",
+>>>>>>> stable
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
@@ -52,7 +68,11 @@
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1"
   },
+<<<<<<< HEAD
   "engines": {
+=======
+  "engines":  {
+>>>>>>> stable
     "node": "12.4.0",
     "npm": "6.9.0"
   }

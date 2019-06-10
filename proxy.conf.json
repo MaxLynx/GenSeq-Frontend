@@ -2,6 +2,8 @@
   "/api/*": {
     "target": "https://genseqbackend.herokuapp.com",
     "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
     "pathRewrite": {"^/api" : ""}
   }
 }
